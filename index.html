@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ioSoil — Plant Care Database</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page-wrap">
+
+    <!-- ── Site Header ── -->
+    <header class="site-header">
+      <div class="logo-mark">io<span>Soil</span></div>
+      <div class="logo-sub" data-i18n="logo_sub">Plant Care Database</div>
+      <div class="lang-select-wrap">
+        <label for="lang-select" class="visually-hidden" data-i18n="language_label">Language</label>
+        <select id="lang-select" aria-label="Language">
+          <option value="en" data-i18n="option_en">English</option>
+          <option value="tl" data-i18n="option_tl">Tagalog</option>
+          <option value="es" data-i18n="option_es">Español</option>
+          <option value="fr" data-i18n="option_fr">Français</option>
+          <option value="de" data-i18n="option_de">Deutsch</option>
+          <option value="zh" data-i18n="option_zh">中文 (Chinese)</option>
+          <option value="ja" data-i18n="option_ja">日本語 (Japanese)</option>
+          <option value="ko" data-i18n="option_ko">한국어 (Korean)</option>
+          <option value="pt" data-i18n="option_pt">Português</option>
+          <option value="ru" data-i18n="option_ru">Русский</option>
+        </select>
+      </div>
+    </header>
+
+    <!-- ── Tab Navigation ── -->
+    <nav class="tabs" role="tablist" aria-label="Plant categories">
+      <button class="tab active" data-cat="arid"     role="tab" aria-selected="true"  aria-controls="panel-arid"     data-i18n="tab_arid"     onclick="show('arid', this)">Arid</button>
+      <button class="tab"        data-cat="drought"  role="tab" aria-selected="false" aria-controls="panel-drought"  data-i18n="tab_drought"  onclick="show('drought', this)">Drought-Tolerant</button>
+      <button class="tab"        data-cat="tropical" role="tab" aria-selected="false" aria-controls="panel-tropical" data-i18n="tab_tropical" onclick="show('tropical', this)">Tropical</button>
+      <button class="tab"        data-cat="leafy"    role="tab" aria-selected="false" aria-controls="panel-leafy"    data-i18n="tab_leafy"    onclick="show('leafy', this)">Leafy Vegetable</button>
+      <button class="tab"        data-cat="aquatic"  role="tab" aria-selected="false" aria-controls="panel-aquatic"  data-i18n="tab_aquatic"  onclick="show('aquatic', this)">Aquatic</button>
+    </nav>
+
+    <!-- ════════════════════════════════
+         PANEL 1 — ARID
+    ════════════════════════════════ -->
+    <section id="panel-arid" class="panel active" role="tabpanel">
+
+      <div class="cat-header cat-header-arid">
+        <div class="cat-badge" style="color: var(--arid)" data-i18n="arid_badge">Category 01 — Arid</div>
+        <div class="cat-title" style="color: var(--arid)" data-i18n="arid_title">Desert-Adapted Plants</div>
+        <div class="cat-summary" data-i18n="arid_summary">
+          Arid plants are masters of water conservation, engineered by nature to thrive in near-dry soil conditions.
+          If you tend to forget watering schedules, these resilient species are your ideal companions—they reward neglect far more than overwatering.
+        </div>
+        <div class="moisture-bar-wrap">
+          <div class="moisture-label" data-i18n="ideal_moisture_label">Ideal soil moisture range</div>
+          <div class="moisture-track">
+            <div class="moisture-fill" style="left: 5%; width: 15%; background: var(--arid);"></div>
+          </div>
+          <div class="moisture-pct" style="color: var(--arid)" data-i18n="arid_moisture_pct">10% – 20%</div>
+        </div>
+      </div>
+
+      <div class="section-title" data-i18n="watering_logic">Watering Logic</div>
+      <div class="trigger-block">
+        <div class="trigger-row">
+          <span class="trigger-pill pill-trigger">Trigger</span>
+          <span data-i18n="arid_trigger">Water when soil moisture drops <strong>below 10%</strong>, typically every 14–21 days in growing season. Always verify with a soil probe; visual cues alone are unreliable.</span>
+        </div>
+      </div>
+      <div class="trigger-block">
+        <div class="trigger-row">
+          <span class="trigger-pill pill-threshold">Threshold</span>
+          <span data-i18n="arid_threshold">Stop watering once moisture reaches <strong>20%</strong>. Never allow substrate to stay saturated. Drain excess immediately—standing water is lethal to most arid species.</span>
+        </div>
+      </div>
+
+      <div class="section-title" data-i18n="growing_conditions">Growing Conditions</div>
+      <div class="grid3">
+        <div class="card">
+          <div class="card-label" data-i18n="soil_mix_label">Soil Mix</div>
+          <div class="card-value" data-i18n="arid_soil_mix">50% coarse sand + 30% perlite + 20% potting mix. Gritty, ultra-draining substrate is essential.</div>
+        </div>
+        <div class="card">
+          <div class="card-label" data-i18n="light_label">Light</div>
+          <div class="card-value" data-i18n="arid_light">Full sun, 6–8+ hrs daily. South or west-facing exposure preferred. Avoid filtered shade.</div>
+        </div>
+        <div class="card">
+          <div class="card-label" data-i18n="humidity_label">Humidity</div>
+          <div class="card-value" data-i18n="arid_humidity">10–30% RH. Low ambient humidity required. Avoid humid bathrooms or enclosed terrariums.</div>
+        </div>
+      </div>
+
+      <div class="section-title" data-i18n="plant_index">Plant Index — 12 Species</div>
+      <div class="plant-grid">
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_arid_1">Saguaro Cactus</div><div class="plant-sci">Carnegiea gigantea</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_arid_2">Barrel Cactus</div><div class="plant-sci">Ferocactus spp.</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_arid_3">Prickly Pear</div><div class="plant-sci">Opuntia ficus-indica</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_arid_4">Agave</div><div class="plant-sci">Agave americana</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_arid_5">Blue Yucca</div><div class="plant-sci">Yucca rigida</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_arid_6">Lithops</div><div class="plant-sci">Lithops salicola</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_arid_7">Ocotillo</div><div class="plant-sci">Fouquieria splendens</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_arid_8">Desert Rose</div><div class="plant-sci">Adenium obesum</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_arid_9">Peyote</div><div class="plant-sci">Lophophora williamsii</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_arid_10">Aloe Vera</div><div class="plant-sci">Aloe barbadensis</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_arid_11">Euphorbia</div><div class="plant-sci">Euphorbia trigona</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_arid_12">Haworthia</div><div class="plant-sci">Haworthiopsis attenuata</div></div>
+      </div>
+
+    </section>
+
+    <!-- ════════════════════════════════
+         PANEL 2 — DROUGHT-TOLERANT
+    ════════════════════════════════ -->
+    <section id="panel-drought" class="panel" role="tabpanel">
+
+      <div class="cat-header cat-header-drought">
+        <div class="cat-badge" style="color: var(--drought)" data-i18n="drought_badge">Category 02 — Drought-Tolerant</div>
+        <div class="cat-title" style="color: var(--drought)" data-i18n="drought_title">Resilient Water-Efficient Plants</div>
+        <div class="cat-summary" data-i18n="drought_summary">
+          Drought-tolerant plants occupy the sweet spot between arid cacti and thirsty tropicals, storing moisture in their leaves, stems, or roots for dry periods.
+          They're excellent choices for water-conscious gardeners who still want lush, varied greenery without constant irrigation demands.
+        </div>
+        <div class="moisture-bar-wrap">
+          <div class="moisture-label" data-i18n="ideal_moisture_label">Ideal soil moisture range</div>
+          <div class="moisture-track">
+            <div class="moisture-fill" style="left: 10%; width: 20%; background: var(--drought);"></div>
+          </div>
+          <div class="moisture-pct" style="color: var(--drought)" data-i18n="drought_moisture_pct">20% – 40%</div>
+        </div>
+      </div>
+
+      <div class="section-title" data-i18n="watering_logic">Watering Logic</div>
+      <div class="trigger-block">
+        <div class="trigger-row">
+          <span class="trigger-pill pill-trigger">Trigger</span>
+          <span data-i18n="drought_trigger">Water when top 2–3 cm of soil is fully dry and moisture reads <strong>below 20%</strong>. Frequency: every 7–14 days in summer, monthly in winter dormancy.</span>
+        </div>
+      </div>
+      <div class="trigger-block">
+        <div class="trigger-row">
+          <span class="trigger-pill pill-threshold">Threshold</span>
+          <span data-i18n="drought_threshold">Stop at <strong>40% moisture</strong>. Allow full drainage before returning pots to saucers. Moderate wet-dry cycles mimic natural steppe environments and promote root health.</span>
+        </div>
+      </div>
+
+      <div class="section-title" data-i18n="growing_conditions">Growing Conditions</div>
+      <div class="grid3">
+        <div class="card">
+          <div class="card-label" data-i18n="soil_mix_label">Soil Mix</div>
+          <div class="card-value" data-i18n="drought_soil_mix">Well-draining loam: 40% potting soil + 30% perlite + 30% grit or pumice for drainage.</div>
+        </div>
+        <div class="card">
+          <div class="card-label" data-i18n="light_label">Light</div>
+          <div class="card-value" data-i18n="drought_light">Bright indirect to full sun, 4–8 hrs. Tolerates partial shade but reduces overall vigour.</div>
+        </div>
+        <div class="card">
+          <div class="card-label" data-i18n="humidity_label">Humidity</div>
+          <div class="card-value" data-i18n="drought_humidity">30–50% RH. Tolerant of dry indoor air. Misting is unnecessary and often counterproductive.</div>
+        </div>
+      </div>
+
+      <div class="section-title" data-i18n="plant_index">Plant Index — 12 Species</div>
+      <div class="plant-grid">
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_drought_1" data-i18n="plant_drought_1">Lavender</div><div class="plant-sci">Lavandula angustifolia</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_drought_2">Rosemary</div><div class="plant-sci">Salvia rosmarinus</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_drought_3">Jade Plant</div><div class="plant-sci">Crassula ovata</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_drought_4">Sedum</div><div class="plant-sci">Sedum spectabile</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_drought_5">Snake Plant</div><div class="plant-sci">Dracaena trifasciata</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_drought_6">Bougainvillea</div><div class="plant-sci">Bougainvillea glabra</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_drought_7">Echeveria</div><div class="plant-sci">Echeveria elegans</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_drought_8">ZZ Plant</div><div class="plant-sci">Zamioculcas zamiifolia</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_drought_9">Ornamental Sage</div><div class="plant-sci">Salvia officinalis</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_drought_10">Russian Sage</div><div class="plant-sci">Salvia yangii</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_drought_11">Hens &amp; Chicks</div><div class="plant-sci">Sempervivum tectorum</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_drought_12">Thyme</div><div class="plant-sci">Thymus vulgaris</div></div>
+      </div>
+
+    </section>
+
+    <!-- ════════════════════════════════
+         PANEL 3 — TROPICAL
+    ════════════════════════════════ -->
+    <section id="panel-tropical" class="panel" role="tabpanel">
+
+      <div class="cat-header cat-header-tropical">
+        <div class="cat-badge" style="color: var(--tropical)" data-i18n="tropical_badge">Category 03 — Tropical</div>
+        <div class="cat-title" style="color: var(--tropical)" data-i18n="tropical_title">High-Humidity Rainforest Plants</div>
+        <div class="cat-summary" data-i18n="tropical_summary">
+          Tropical plants evolved in environments of abundant moisture and dappled light, thriving when their soil stays consistently moist but never waterlogged.
+          Consistent humidity and warm temperatures are just as important as watering frequency for keeping these lush species healthy indoors.
+        </div>
+        <div class="moisture-bar-wrap">
+          <div class="moisture-label" data-i18n="ideal_moisture_label">Ideal soil moisture range</div>
+          <div class="moisture-track">
+            <div class="moisture-fill" style="left: 25%; width: 30%; background: var(--tropical);"></div>
+          </div>
+          <div class="moisture-pct" style="color: var(--tropical)" data-i18n="tropical_moisture_pct">50% – 70%</div>
+        </div>
+      </div>
+
+      <div class="section-title" data-i18n="watering_logic">Watering Logic</div>
+      <div class="trigger-block">
+        <div class="trigger-row">
+          <span class="trigger-pill pill-trigger">Trigger</span>
+          <span data-i18n="tropical_trigger">Water when sensor reads <strong>below 50%</strong> or top inch of soil feels dry. In active growth (spring–summer), check every 3–5 days. Reduce frequency in winter.</span>
+        </div>
+      </div>
+      <div class="trigger-block">
+        <div class="trigger-row">
+          <span class="trigger-pill pill-threshold">Threshold</span>
+          <span data-i18n="tropical_threshold">Stop at <strong>70% moisture</strong>. Ensure pots have drainage holes. Root rot develops rapidly above 80%—aeration of the root zone is critical alongside moisture retention.</span>
+        </div>
+      </div>
+
+      <div class="section-title" data-i18n="growing_conditions">Growing Conditions</div>
+      <div class="grid3">
+        <div class="card">
+          <div class="card-label" data-i18n="soil_mix_label">Soil Mix</div>
+          <div class="card-value" data-i18n="tropical_soil_mix">Peat-free loam: 60% coco coir + 20% perlite + 20% orchid bark for aeration and structure.</div>
+        </div>
+        <div class="card">
+          <div class="card-label" data-i18n="light_label">Light</div>
+          <div class="card-value" data-i18n="tropical_light">Bright indirect light, 4–6 hrs. No harsh afternoon sun. East-facing windows are ideal.</div>
+        </div>
+        <div class="card">
+          <div class="card-label" data-i18n="humidity_label">Humidity</div>
+          <div class="card-value" data-i18n="tropical_humidity">60–80% RH. Use a pebble tray, humidifier, or group plants to raise ambient humidity.</div>
+        </div>
+      </div>
+
+      <div class="section-title" data-i18n="plant_index">Plant Index — 12 Species</div>
+      <div class="plant-grid">
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_tropical_1" data-i18n="plant_tropical_1">Monstera</div><div class="plant-sci">Monstera deliciosa</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_tropical_2">Bird of Paradise</div><div class="plant-sci">Strelitzia reginae</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_tropical_3">Peace Lily</div><div class="plant-sci">Spathiphyllum wallisii</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_tropical_4">Pothos</div><div class="plant-sci">Epipremnum aureum</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_tropical_5">Fiddle Leaf Fig</div><div class="plant-sci">Ficus lyrata</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_tropical_6">Philodendron</div><div class="plant-sci">Philodendron hederaceum</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_tropical_7">Anthurium</div><div class="plant-sci">Anthurium andraeanum</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_tropical_8">Calathea</div><div class="plant-sci">Calathea orbifolia</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_tropical_9">Banana Plant</div><div class="plant-sci">Musa acuminata</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_tropical_10">Heliconia</div><div class="plant-sci">Heliconia psittacorum</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_tropical_11">Alocasia</div><div class="plant-sci">Alocasia macrorrhiza</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_tropical_12">Bromeliads</div><div class="plant-sci">Bromeliaceae family</div></div>
+      </div>
+
+    </section>
+
+    <!-- ════════════════════════════════
+         PANEL 4 — LEAFY VEGETABLE
+    ════════════════════════════════ -->
+    <section id="panel-leafy" class="panel" role="tabpanel">
+
+      <div class="cat-header cat-header-leafy">
+        <div class="cat-badge" style="color: var(--leafy)" data-i18n="leafy_badge">Category 04 — Leafy Vegetable</div>
+        <div class="cat-title" style="color: var(--leafy)" data-i18n="leafy_title">Fast-Growing Edible Crops</div>
+        <div class="cat-summary" data-i18n="leafy_summary">
+          Leafy vegetables are productive, fast-cycling crops that reward attentive and consistent watering with tender, flavourful harvests.
+          Because most of their edible mass is water, allowing the soil to dry out—even briefly—can trigger bolting, bitterness, and wilting that reduces yield quality.
+        </div>
+        <div class="moisture-bar-wrap">
+          <div class="moisture-label" data-i18n="ideal_moisture_label">Ideal soil moisture range</div>
+          <div class="moisture-track">
+            <div class="moisture-fill" style="left: 30%; width: 30%; background: var(--leafy);"></div>
+          </div>
+          <div class="moisture-pct" style="color: var(--leafy)" data-i18n="leafy_moisture_pct">55% – 75%</div>
+        </div>
+      </div>
+
+      <div class="section-title" data-i18n="watering_logic">Watering Logic</div>
+      <div class="trigger-block">
+        <div class="trigger-row">
+          <span class="trigger-pill pill-trigger">Trigger</span>
+          <span data-i18n="leafy_trigger">Irrigate when moisture drops to <strong>55%</strong>. In hot weather or grow-light setups, check daily. Consistent moisture prevents bolting, tipburn (calcium deficiency), and bitter flavour compounds.</span>
+        </div>
+      </div>
+      <div class="trigger-block">
+        <div class="trigger-row">
+          <span class="trigger-pill pill-threshold">Threshold</span>
+          <span data-i18n="leafy_threshold">Maintain at or below <strong>75% moisture</strong>. For outdoor beds, deep infrequent watering (drip irrigation) encourages deep root growth vs. shallow surface watering.</span>
+        </div>
+      </div>
+
+      <div class="section-title" data-i18n="growing_conditions">Growing Conditions</div>
+      <div class="grid3">
+        <div class="card">
+          <div class="card-label" data-i18n="soil_mix_label">Soil Mix</div>
+          <div class="card-value" data-i18n="leafy_soil_mix">Rich loamy soil: 50% compost + 30% topsoil + 20% perlite. High nitrogen content essential.</div>
+        </div>
+        <div class="card">
+          <div class="card-label" data-i18n="light_label">Light</div>
+          <div class="card-value" data-i18n="leafy_light">Full sun to partial shade, 4–8 hrs. Shade cloth recommended above 35°C to prevent bolting.</div>
+        </div>
+        <div class="card">
+          <div class="card-label" data-i18n="humidity_label">Humidity</div>
+          <div class="card-value" data-i18n="leafy_humidity">50–70% RH. Good air circulation reduces fungal issues such as downy mildew and grey mould.</div>
+        </div>
+      </div>
+
+      <div class="section-title" data-i18n="plant_index">Plant Index — 12 Species</div>
+      <div class="plant-grid">
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_leafy_1" data-i18n="plant_leafy_1">Lettuce</div><div class="plant-sci">Lactuca sativa</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_leafy_2">Spinach</div><div class="plant-sci">Spinacia oleracea</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_leafy_3">Kale</div><div class="plant-sci">Brassica oleracea (var.)</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_leafy_4">Swiss Chard</div><div class="plant-sci">Beta vulgaris subsp.</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_leafy_5">Arugula</div><div class="plant-sci">Eruca vesicaria</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_leafy_6">Bok Choy</div><div class="plant-sci">Brassica rapa chinensis</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_leafy_7">Collard Greens</div><div class="plant-sci">Brassica oleracea aceph.</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_leafy_8">Mustard Greens</div><div class="plant-sci">Brassica juncea</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_leafy_9">Watercress</div><div class="plant-sci">Nasturtium officinale</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_leafy_10">Endive</div><div class="plant-sci">Cichorium endivia</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_leafy_11">Radicchio</div><div class="plant-sci">Cichorium intybus</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_leafy_12">Tatsoi</div><div class="plant-sci">Brassica rapa narinosa</div></div>
+      </div>
+
+    </section>
+
+    <!-- ════════════════════════════════
+         PANEL 5 — AQUATIC
+    ════════════════════════════════ -->
+    <section id="panel-aquatic" class="panel" role="tabpanel">
+
+      <div class="cat-header cat-header-aquatic">
+        <div class="cat-badge" style="color: var(--aquatic)" data-i18n="aquatic_badge">Category 05 — Aquatic</div>
+        <div class="cat-title" style="color: var(--aquatic)" data-i18n="aquatic_title">Submerged &amp; Marginal Water Plants</div>
+        <div class="cat-summary" data-i18n="aquatic_summary">
+          Aquatic plants are uniquely adapted to saturated or fully submerged substrates, requiring near-constant water presence to survive and thrive.
+          Unlike every other plant category, the primary management challenge is not overwatering but ensuring adequate water chemistry, dissolved oxygen, and nutrient levels.
+        </div>
+        <div class="moisture-bar-wrap">
+          <div class="moisture-label" data-i18n="ideal_moisture_label">Ideal soil moisture range</div>
+          <div class="moisture-track">
+            <div class="moisture-fill" style="left: 65%; width: 30%; background: var(--aquatic);"></div>
+          </div>
+          <div class="moisture-pct" style="color: var(--aquatic)" data-i18n="aquatic_moisture_pct">85% – 100%+</div>
+        </div>
+      </div>
+
+      <div class="section-title" data-i18n="watering_logic">Watering Logic</div>
+      <div class="trigger-block">
+        <div class="trigger-row">
+          <span class="trigger-pill pill-trigger">Trigger</span>
+          <span data-i18n="aquatic_trigger">Maintain water level consistently. For marginal species, refill when water drops <strong>below 85%</strong> substrate saturation. For submerged species, maintain continuous coverage of 2–15 cm above crown.</span>
+        </div>
+      </div>
+      <div class="trigger-block">
+        <div class="trigger-row">
+          <span class="trigger-pill pill-threshold">Threshold</span>
+          <span data-i18n="aquatic_threshold">No upper moisture limit applies. Monitor pH (6.5–8.5), dKH (3–8), and EC/TDS rather than moisture. Replace 10–20% of water weekly to prevent nutrient stagnation and algae blooms.</span>
+        </div>
+      </div>
+
+      <div class="section-title" data-i18n="growing_conditions">Growing Conditions</div>
+      <div class="grid3">
+        <div class="card">
+          <div class="card-label" data-i18n="substrate_label">Substrate</div>
+          <div class="card-value" data-i18n="aquatic_substrate">Aquatic clay or loam topped with coarse gravel. Avoid potting mix—it clouds water and decomposes rapidly.</div>
+        </div>
+        <div class="card">
+          <div class="card-label" data-i18n="light_label">Light</div>
+          <div class="card-value" data-i18n="aquatic_light">Full sun to bright indirect, 4–8 hrs. Floating species naturally shade submerged ones below.</div>
+        </div>
+        <div class="card">
+          <div class="card-label" data-i18n="water_quality_label">Water Quality</div>
+          <div class="card-value" data-i18n="aquatic_water_quality">Temp 15–28°C. Oxygenate via aerator or fountain pump. Test pH weekly. Remove algae promptly.</div>
+        </div>
+      </div>
+
+      <div class="section-title" data-i18n="plant_index">Plant Index — 12 Species</div>
+      <div class="plant-grid">
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_aquatic_1" data-i18n="plant_aquatic_1">Water Lily</div><div class="plant-sci">Nymphaea spp.</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_aquatic_2">Lotus</div><div class="plant-sci">Nelumbo nucifera</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_aquatic_3">Papyrus</div><div class="plant-sci">Cyperus papyrus</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_aquatic_4">Cattail</div><div class="plant-sci">Typha latifolia</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_aquatic_5">Water Hyacinth</div><div class="plant-sci">Eichhornia crassipes</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_aquatic_6">Pickerelweed</div><div class="plant-sci">Pontederia cordata</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_aquatic_7">Horsetail Reed</div><div class="plant-sci">Equisetum hyemale</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_aquatic_8">Duckweed</div><div class="plant-sci">Lemna minor</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_aquatic_9">Arrowhead</div><div class="plant-sci">Sagittaria sagittifolia</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_aquatic_10">Yellow Iris</div><div class="plant-sci">Iris pseudacorus</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_aquatic_11">Umbrella Palm</div><div class="plant-sci">Cyperus alternifolius</div></div>
+        <div class="plant-chip"><div class="plant-common" data-i18n="plant_aquatic_12">Water Mint</div><div class="plant-sci">Mentha aquatica</div></div>
+      </div>
+
+    </section>
+
+    <footer class="footer" data-i18n="footer">
+      ioSoil Plant Care Database &mdash; v1.0 &mdash; 5 categories &bull; 60 species
+    </footer>
+
+  </main>
+
+  <!-- JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>
