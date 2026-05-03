@@ -171,92 +171,106 @@ const translations = {
   }
 };
 // add missing translation keys for card values, plant names, and trigger texts
-translations.en.arid_trigger = 'Water when soil moisture drops <strong>below 10%</strong>, typically every 14–21 days in growing season. Always verify with a soil probe; visual cues alone are unreliable.';
-translations.en.arid_threshold = 'Stop watering once moisture reaches <strong>20%</strong>. Never allow substrate to stay saturated. Drain excess immediately—standing water is lethal to most arid species.';
-translations.en.arid_soil_mix = '50% coarse sand + 30% perlite + 20% potting mix. Gritty, ultra-draining substrate is essential.';
-translations.en.arid_light = 'Full sun, 6–8+ hrs daily. South or west-facing exposure preferred. Avoid filtered shade.';
-translations.en.arid_humidity = '10–30% RH. Low ambient humidity required. Avoid humid bathrooms or enclosed terrariums.';
-translations.en.drought_soil_mix = 'Well-draining loam: 40% potting soil + 30% perlite + 30% grit or pumice for drainage.';
-translations.en.drought_light = 'Bright indirect to full sun, 4–8 hrs. Tolerates partial shade but reduces overall vigour.';
-translations.en.drought_humidity = '30–50% RH. Tolerant of dry indoor air. Misting is unnecessary and often counterproductive.';
-translations.en.tropical_soil_mix = 'Peat-free loam: 60% coco coir + 20% perlite + 20% orchid bark for aeration and structure.';
-translations.en.tropical_light = 'Bright indirect light, 4–6 hrs. No harsh afternoon sun. East-facing windows are ideal.';
-translations.en.tropical_humidity = '60–80% RH. Use a pebble tray, humidifier, or group plants to raise ambient humidity.';
-translations.en.leafy_soil_mix = 'Rich loamy soil: 50% compost + 30% topsoil + 20% perlite. High nitrogen content essential.';
-translations.en.leafy_light = 'Full sun to partial shade, 4–8 hrs. Shade cloth recommended above 35°C to prevent bolting.';
-translations.en.leafy_humidity = '50–70% RH. Good air circulation reduces fungal issues such as downy mildew and grey mould.';
-translations.en.aquatic_substrate = 'Aquatic clay or loam topped with coarse gravel. Avoid potting mix—it clouds water and decomposes rapidly.';
-translations.en.aquatic_light = 'Full sun to bright indirect, 4–8 hrs. Floating species naturally shade submerged ones below.';
-translations.en.aquatic_water_quality = 'Temp 15–28°C. Oxygenate via aerator or fountain pump. Test pH weekly. Remove algae promptly.';
-translations.en.drought_trigger = 'Water when top 2–3 cm of soil is fully dry and moisture reads <strong>below 20%</strong>. Frequency: every 7–14 days in summer, monthly in winter dormancy.';
-translations.en.drought_threshold = 'Stop at <strong>40% moisture</strong>. Allow full drainage before returning pots to saucers. Moderate wet-dry cycles mimic natural steppe environments and promote root health.';
-translations.en.tropical_trigger = 'Water when sensor reads <strong>below 50%</strong> or top inch of soil feels dry. In active growth (spring–summer), check every 3–5 days. Reduce frequency in winter.';
-translations.en.tropical_threshold = 'Stop at <strong>70% moisture</strong>. Ensure pots have drainage holes. Root rot develops rapidly above 80%—aeration of the root zone is critical alongside moisture retention.';
-translations.en.leafy_trigger = 'Irrigate when moisture drops to <strong>55%</strong>. In hot weather or grow-light setups, check daily. Consistent moisture prevents bolting, tipburn (calcium deficiency), and bitter flavour compounds.';
-translations.en.leafy_threshold = 'Maintain at or below <strong>75% moisture</strong>. For outdoor beds, deep infrequent watering (drip irrigation) encourages deep root growth vs. shallow surface watering.';
-translations.en.aquatic_trigger = 'Maintain water level consistently. For marginal species, refill when water drops <strong>below 85%</strong> substrate saturation. For submerged species, maintain continuous coverage of 2–15 cm above crown.';
-translations.en.aquatic_threshold = 'No upper moisture limit applies. Monitor pH (6.5–8.5), dKH (3–8), and EC/TDS rather than moisture. Replace 10–20% of water weekly to prevent nutrient stagnation and algae blooms.';
+translations.en.arid_trigger = 'Water when soil moisture is below 10%. Usually every 2–3 weeks in the growing season. Use a soil probe to check — looking at the soil is not enough.';
+translations.en.arid_threshold = 'Stop watering when moisture reaches 20%. Do not let soil stay full of water. Drain extra water right away.';
+translations.en.arid_soil_mix = 'Mix: 50% coarse sand, 30% perlite, 20% potting mix. Use a fast-draining soil.';
+translations.en.arid_light = 'Full sun, about 6–8 hours a day. Avoid shady spots.';
+translations.en.arid_humidity = 'Low humidity (10–30%). Keep away from very humid rooms.';
+// Danger ranges (English) — simplified
+translations.en.arid_danger_low = 'Danger — moisture below 5%: plants can dry out and die.';
+translations.en.arid_danger_high = 'Danger — moisture above 30%: roots can rot.';
+translations.en.drought_danger_low = 'Danger — moisture below 12%: plants can wilt.';
+translations.en.drought_danger_high = 'Danger — moisture above 50%: roots can suffer and rot.';
+translations.en.tropical_danger_low = 'Danger — moisture below 30%: tropical plants can suffer drought.';
+translations.en.tropical_danger_high = 'Danger — moisture above 80%: fast root rot risk.';
+translations.en.leafy_danger_low = 'Danger — moisture below 40%: leaves may bolt or yield can drop.';
+translations.en.leafy_danger_high = 'Danger — moisture above 85%: roots may lack oxygen and fail.';
+translations.en.aquatic_danger_low = 'Danger — water below 75%: marginal water plants may struggle.';
+translations.en.aquatic_danger_high = 'Note — no upper moisture danger; watch water quality and oxygen.';
+
+// small summary title for the collapsible danger panel
+translations.en.danger_summary_title = 'Danger details';
+translations.en.drought_soil_mix = 'Use well-draining loam: 40% potting soil, 30% perlite, 30% grit or pumice.';
+translations.en.drought_light = 'Bright light, indirect to some direct sun, 4–8 hours.';
+translations.en.drought_humidity = 'Medium low humidity (30–50%). Misting is not needed.';
+translations.en.tropical_soil_mix = 'Use airy mix: 60% coco coir, 20% perlite, 20% bark.';
+translations.en.tropical_light = 'Bright, indirect light, 4–6 hours. Avoid strong afternoon sun.';
+translations.en.tropical_humidity = 'High humidity (60–80%). Use a tray or humidifier if needed.';
+translations.en.leafy_soil_mix = 'Rich soil: 50% compost, 30% topsoil, 20% perlite.';
+translations.en.leafy_light = 'Full sun to part shade, 4–8 hours. Shade cloth helps in very hot weather.';
+translations.en.leafy_humidity = 'Moderate humidity (50–70%). Good air flow helps prevent disease.';
+translations.en.aquatic_substrate = 'Use aquatic clay or loam with coarse gravel on top. Do not use regular potting mix.';
+translations.en.aquatic_light = 'Full sun to bright indirect light, 4–8 hours.';
+translations.en.aquatic_water_quality = 'Keep water 15–28°C. Add aeration and check pH regularly.';
+translations.en.drought_trigger = 'Water when the top 2–3 cm of soil is dry or if moisture is below 20%.';
+translations.en.drought_threshold = 'Stop watering at 40% moisture. Let pots drain fully.';
+translations.en.tropical_trigger = 'Water when moisture is below 50% or the top inch feels dry. Check every few days in growth season.';
+translations.en.tropical_threshold = 'Stop at 70% moisture. Make sure pots drain well.';
+translations.en.leafy_trigger = 'Water when moisture drops to 55%. In hot weather check daily.';
+translations.en.leafy_threshold = 'Keep moisture at or below 75%. Deep, less-frequent watering outdoors helps roots.';
+translations.en.aquatic_trigger = 'Keep water level steady. Refill if it drops below 85% for marginal plants.';
+translations.en.aquatic_threshold = 'No upper moisture limit. Instead watch pH, oxygen, and water quality.';
 // Arid plants
-translations.en.plant_arid_1 = 'Saguaro Cactus';
-translations.en.plant_arid_2 = 'Barrel Cactus';
-translations.en.plant_arid_3 = 'Prickly Pear';
-translations.en.plant_arid_4 = 'Agave';
-translations.en.plant_arid_5 = 'Blue Yucca';
-translations.en.plant_arid_6 = 'Lithops';
-translations.en.plant_arid_7 = 'Ocotillo';
-translations.en.plant_arid_8 = 'Desert Rose';
-translations.en.plant_arid_9 = 'Peyote';
-translations.en.plant_arid_10 = 'Aloe Vera';
-translations.en.plant_arid_11 = 'Euphorbia';
-translations.en.plant_arid_12 = 'Haworthia';
+translations.en.plant_arid_1 = 'Aloe Vera';
+translations.en.plant_arid_2 = 'Agave';
+translations.en.plant_arid_3 = 'Euphorbia';
+translations.en.plant_arid_4 = 'Haworthia';
+translations.en.plant_arid_5 = 'Lithops';
+translations.en.plant_arid_6 = 'Kalanchoe';
+translations.en.plant_arid_7 = 'Echeveria';
+translations.en.plant_arid_8 = 'Opuntia (Prickly Pear)';
+translations.en.plant_arid_9 = 'Sansevieria (Snake Plant)';
+translations.en.plant_arid_10 = 'Sedum';
+translations.en.plant_arid_11 = 'Crassula (Jade Plant)';
+translations.en.plant_arid_12 = 'Adenium (Desert Rose)';
 // Drought plants
-translations.en.plant_drought_1 = 'Lavender';
-translations.en.plant_drought_2 = 'Rosemary';
-translations.en.plant_drought_3 = 'Jade Plant';
-translations.en.plant_drought_4 = 'Sedum';
-translations.en.plant_drought_5 = 'Snake Plant';
-translations.en.plant_drought_6 = 'Bougainvillea';
-translations.en.plant_drought_7 = 'Echeveria';
-translations.en.plant_drought_8 = 'ZZ Plant';
-translations.en.plant_drought_9 = 'Ornamental Sage';
-translations.en.plant_drought_10 = 'Russian Sage';
-translations.en.plant_drought_11 = 'Hens & Chicks';
-translations.en.plant_drought_12 = 'Thyme';
+translations.en.plant_drought_1 = 'Bougainvillea';
+translations.en.plant_drought_2 = 'Moringa (Malunggay)';
+translations.en.plant_drought_3 = 'Plumeria (Kalachuchi)';
+translations.en.plant_drought_4 = 'Lantana';
+translations.en.plant_drought_5 = 'Roselle';
+translations.en.plant_drought_6 = 'Neem';
+translations.en.plant_drought_7 = 'Portulaca (Moss Rose)';
+translations.en.plant_drought_8 = 'Jade Plant (Crassula)';
+translations.en.plant_drought_9 = 'Snake Plant (Sansevieria)';
+translations.en.plant_drought_10 = 'Euphorbia';
+translations.en.plant_drought_11 = 'Echeveria';
+translations.en.plant_drought_12 = 'Pomegranate';
 // Tropical plants
-translations.en.plant_tropical_1 = 'Monstera';
-translations.en.plant_tropical_2 = 'Bird of Paradise';
-translations.en.plant_tropical_3 = 'Peace Lily';
-translations.en.plant_tropical_4 = 'Pothos';
-translations.en.plant_tropical_5 = 'Fiddle Leaf Fig';
-translations.en.plant_tropical_6 = 'Philodendron';
-translations.en.plant_tropical_7 = 'Anthurium';
-translations.en.plant_tropical_8 = 'Calathea';
-translations.en.plant_tropical_9 = 'Banana Plant';
-translations.en.plant_tropical_10 = 'Heliconia';
-translations.en.plant_tropical_11 = 'Alocasia';
+translations.en.plant_tropical_1 = 'Coconut';
+translations.en.plant_tropical_2 = 'Mango';
+translations.en.plant_tropical_3 = 'Banana';
+translations.en.plant_tropical_4 = 'Papaya';
+translations.en.plant_tropical_5 = 'Jackfruit (Langka)';
+translations.en.plant_tropical_6 = 'Durian';
+translations.en.plant_tropical_7 = 'Heliconia';
+translations.en.plant_tropical_8 = 'Anthurium';
+translations.en.plant_tropical_9 = 'Calathea';
+translations.en.plant_tropical_10 = 'Monstera';
+translations.en.plant_tropical_11 = 'Philodendron';
 translations.en.plant_tropical_12 = 'Bromeliads';
 // Leafy plants
-translations.en.plant_leafy_1 = 'Lettuce';
-translations.en.plant_leafy_2 = 'Spinach';
-translations.en.plant_leafy_3 = 'Kale';
-translations.en.plant_leafy_4 = 'Swiss Chard';
-translations.en.plant_leafy_5 = 'Arugula';
-translations.en.plant_leafy_6 = 'Bok Choy';
-translations.en.plant_leafy_7 = 'Collard Greens';
-translations.en.plant_leafy_8 = 'Mustard Greens';
-translations.en.plant_leafy_9 = 'Watercress';
-translations.en.plant_leafy_10 = 'Endive';
-translations.en.plant_leafy_11 = 'Radicchio';
-translations.en.plant_leafy_12 = 'Tatsoi';
+translations.en.plant_leafy_1 = 'Kangkong (Water Spinach)';
+translations.en.plant_leafy_2 = 'Pechay (Bok Choy)';
+translations.en.plant_leafy_3 = 'Malunggay (Moringa leaves)';
+translations.en.plant_leafy_4 = 'Alugbati (Basella)';
+translations.en.plant_leafy_5 = 'Mustasa (Mustard Greens)';
+translations.en.plant_leafy_6 = 'Lettuce';
+translations.en.plant_leafy_7 = 'Spinach';
+translations.en.plant_leafy_8 = 'Kangkong (young shoots)';
+translations.en.plant_leafy_9 = 'Camote Tops (Sweet Potato leaves)';
+translations.en.plant_leafy_10 = 'Saluyot (Jute)';
+translations.en.plant_leafy_11 = 'Watercress';
+translations.en.plant_leafy_12 = 'Radish Greens';
 // Aquatic plants
-translations.en.plant_aquatic_1 = 'Water Lily';
-translations.en.plant_aquatic_2 = 'Lotus';
-translations.en.plant_aquatic_3 = 'Papyrus';
-translations.en.plant_aquatic_4 = 'Cattail';
-translations.en.plant_aquatic_5 = 'Water Hyacinth';
-translations.en.plant_aquatic_6 = 'Pickerelweed';
-translations.en.plant_aquatic_7 = 'Horsetail Reed';
-translations.en.plant_aquatic_8 = 'Duckweed';
+translations.en.plant_aquatic_1 = 'Water Hyacinth';
+translations.en.plant_aquatic_2 = 'Water Lettuce';
+translations.en.plant_aquatic_3 = 'Kangkong (Water Spinach)';
+translations.en.plant_aquatic_4 = 'Lotus';
+translations.en.plant_aquatic_5 = 'Water Lily';
+translations.en.plant_aquatic_6 = 'Duckweed';
+translations.en.plant_aquatic_7 = 'Papyrus';
+translations.en.plant_aquatic_8 = 'Cattail';
 translations.en.plant_aquatic_9 = 'Arrowhead';
 translations.en.plant_aquatic_10 = 'Yellow Iris';
 translations.en.plant_aquatic_11 = 'Umbrella Palm';
@@ -268,6 +282,18 @@ translations.tl.arid_threshold = 'Itigil ang pagdidilig kapag ang moisture ay um
 translations.tl.arid_soil_mix = '50% mababang buhangin + 30% perlite + 20% potting mix. Kailangan ng mabigat na, mabilis na draining substrate.';
 translations.tl.arid_light = 'Buong araw ng araw, 6–8+ oras araw-araw. Hinaharap sa Timog o Kanluran ay mas ginagustuhan. Iwasan ang filtered shade.';
 translations.tl.arid_humidity = '10–30% RH. Kailangan ng mababang ambient humidity. Iwasan ang mainit na banyo o closed terrariums.';
+// Danger ranges (Tagalog)
+translations.tl.arid_danger_low = 'Babala — halumigmig ng lupa < 5%: malubhang dehydration at mabilis na pagkatuyo.';
+translations.tl.arid_danger_high = 'Babala — halumigmig ng lupa > 30%: mataas na panganib ng root rot.';
+translations.tl.drought_danger_low = 'Babala — halumigmig ng lupa < 12%: panganib ng pag-wilt.';
+translations.tl.drought_danger_high = 'Babala — halumigmig ng lupa > 50%: panganib ng suffocation ng ugat at pagkabulok.';
+translations.tl.tropical_danger_low = 'Babala — halumigmig ng lupa < 30%: stress para sa tropikal na halaman.';
+translations.tl.tropical_danger_high = 'Babala — halumigmig ng lupa > 80%: mabilis na panganib ng root rot.';
+translations.tl.leafy_danger_low = 'Babala — halumigmig ng lupa < 40%: maaaring magdulot ng bolting at pagbaba ng ani.';
+translations.tl.leafy_danger_high = 'Babala — halumigmig ng lupa > 85%: panganib ng kakulangan ng oxygen sa ugat.';
+translations.tl.aquatic_danger_low = 'Babala — antas ng tubig < 75%: ang mga marginal na species ay maaaring maghirap.';
+translations.tl.aquatic_danger_high = 'Tandaan — walang itaas na limitasyon sa kahalumigmigan; subaybayan ang kalidad ng tubig at oxygenation.';
+translations.tl.danger_summary_title = 'Mga panganib at paalala';
 translations.tl.drought_soil_mix = 'Well-draining loam: 40% potting soil + 30% perlite + 30% grit o pumice para sa drainage.';
 translations.tl.drought_light = 'Maliwanag na indirect hanggang buong araw, 4–8 oras. Tinatanggap ang partial shade ngunit nababawasan ang overall vigour.';
 translations.tl.drought_humidity = '30–50% RH. Tinatanggap ang tuyong indoor air. Ang misting ay hindi kailangan at madalas na counterproductive.';
@@ -289,66 +315,66 @@ translations.tl.leafy_threshold = 'Panatilihin sa o mababa sa <strong>75% moistu
 translations.tl.aquatic_trigger = 'Panatilihin ang antas ng tubig nang pare-pareho. Para sa marginal na species, dagdagan kapag bumaba sa <strong>85%</strong>. Para sa submerged, panatilihin ang 2–15 cm na sakop sa ibabaw.';
 translations.tl.aquatic_threshold = 'Walang itaas na limitasyon sa moisture. Subaybayan ang pH (6.5–8.5), dKH (3–8), at EC/TDS. Palitan 10–20% ng tubig lingguhan.';
 // Tagalog: Arid plants
-translations.tl.plant_arid_1 = 'Suguaro na Kaktus';
-translations.tl.plant_arid_2 = 'Kaktus na Bariles';
-translations.tl.plant_arid_3 = 'Prickly Pear';
-translations.tl.plant_arid_4 = 'Agave';
-translations.tl.plant_arid_5 = 'Asul na Yucca';
-translations.tl.plant_arid_6 = 'Lithops';
-translations.tl.plant_arid_7 = 'Ocotillo';
-translations.tl.plant_arid_8 = 'Desert Rose';
-translations.tl.plant_arid_9 = 'Peyote';
-translations.tl.plant_arid_10 = 'Aloe Vera';
-translations.tl.plant_arid_11 = 'Euphorbia';
-translations.tl.plant_arid_12 = 'Haworthia';
+translations.tl.plant_arid_1 = 'Aloe Vera';
+translations.tl.plant_arid_2 = 'Agave';
+translations.tl.plant_arid_3 = 'Euphorbia';
+translations.tl.plant_arid_4 = 'Haworthia';
+translations.tl.plant_arid_5 = 'Lithops';
+translations.tl.plant_arid_6 = 'Kalanchoe';
+translations.tl.plant_arid_7 = 'Echeveria';
+translations.tl.plant_arid_8 = 'Opuntia (Prickly Pear)';
+translations.tl.plant_arid_9 = 'Sansevieria (Snake Plant)';
+translations.tl.plant_arid_10 = 'Sedum';
+translations.tl.plant_arid_11 = 'Crassula (Jade Plant)';
+translations.tl.plant_arid_12 = 'Adenium (Desert Rose)';
 // Tagalog: Drought plants
-translations.tl.plant_drought_1 = 'Lavender';
-translations.tl.plant_drought_2 = 'Rosemary';
-translations.tl.plant_drought_3 = 'Jade Plant';
-translations.tl.plant_drought_4 = 'Sedum';
-translations.tl.plant_drought_5 = 'Snake Plant';
-translations.tl.plant_drought_6 = 'Bougainvillea';
-translations.tl.plant_drought_7 = 'Echeveria';
-translations.tl.plant_drought_8 = 'ZZ Plant';
-translations.tl.plant_drought_9 = 'Ornamental Sage';
-translations.tl.plant_drought_10 = 'Russian Sage';
-translations.tl.plant_drought_11 = 'Hens & Chicks';
-translations.tl.plant_drought_12 = 'Thyme';
+translations.tl.plant_drought_1 = 'Bougainvillea';
+translations.tl.plant_drought_2 = 'Malunggay (Moringa)';
+translations.tl.plant_drought_3 = 'Kalachuchi (Plumeria)';
+translations.tl.plant_drought_4 = 'Lantana';
+translations.tl.plant_drought_5 = 'Roselle';
+translations.tl.plant_drought_6 = 'Neem';
+translations.tl.plant_drought_7 = 'Portulaca (Moss Rose)';
+translations.tl.plant_drought_8 = 'Jade Plant (Crassula)';
+translations.tl.plant_drought_9 = 'Snake Plant (Sansevieria)';
+translations.tl.plant_drought_10 = 'Euphorbia';
+translations.tl.plant_drought_11 = 'Echeveria';
+translations.tl.plant_drought_12 = 'Granada (Pomegranate)';
 // Tagalog: Tropical plants
-translations.tl.plant_tropical_1 = 'Monstera';
-translations.tl.plant_tropical_2 = 'Bird of Paradise';
-translations.tl.plant_tropical_3 = 'Peace Lily';
-translations.tl.plant_tropical_4 = 'Pothos';
-translations.tl.plant_tropical_5 = 'Fiddle Leaf Fig';
-translations.tl.plant_tropical_6 = 'Philodendron';
-translations.tl.plant_tropical_7 = 'Anthurium';
-translations.tl.plant_tropical_8 = 'Calathea';
-translations.tl.plant_tropical_9 = 'Banana Plant';
-translations.tl.plant_tropical_10 = 'Heliconia';
-translations.tl.plant_tropical_11 = 'Alocasia';
+translations.tl.plant_tropical_1 = 'Niyog (Coconut)';
+translations.tl.plant_tropical_2 = 'Mangga (Mango)';
+translations.tl.plant_tropical_3 = 'Saging (Banana)';
+translations.tl.plant_tropical_4 = 'Papaya';
+translations.tl.plant_tropical_5 = 'Langka (Jackfruit)';
+translations.tl.plant_tropical_6 = 'Durian';
+translations.tl.plant_tropical_7 = 'Heliconia';
+translations.tl.plant_tropical_8 = 'Anthurium';
+translations.tl.plant_tropical_9 = 'Calathea';
+translations.tl.plant_tropical_10 = 'Monstera';
+translations.tl.plant_tropical_11 = 'Philodendron';
 translations.tl.plant_tropical_12 = 'Bromeliads';
 // Tagalog: Leafy plants
-translations.tl.plant_leafy_1 = 'Lettuce';
-translations.tl.plant_leafy_2 = 'Spinach';
-translations.tl.plant_leafy_3 = 'Kale';
-translations.tl.plant_leafy_4 = 'Swiss Chard';
-translations.tl.plant_leafy_5 = 'Arugula';
-translations.tl.plant_leafy_6 = 'Bok Choy';
-translations.tl.plant_leafy_7 = 'Collard Greens';
-translations.tl.plant_leafy_8 = 'Mustard Greens';
-translations.tl.plant_leafy_9 = 'Watercress';
-translations.tl.plant_leafy_10 = 'Endive';
-translations.tl.plant_leafy_11 = 'Radicchio';
-translations.tl.plant_leafy_12 = 'Tatsoi';
+translations.tl.plant_leafy_1 = 'Kangkong (Water Spinach)';
+translations.tl.plant_leafy_2 = 'Pechay (Bok Choy)';
+translations.tl.plant_leafy_3 = 'Malunggay (Moringa)';
+translations.tl.plant_leafy_4 = 'Alugbati (Basella)';
+translations.tl.plant_leafy_5 = 'Mustasa (Mustard Greens)';
+translations.tl.plant_leafy_6 = 'Letsugas (Lettuce)';
+translations.tl.plant_leafy_7 = 'Spinach';
+translations.tl.plant_leafy_8 = 'Kangkong (young shoots)';
+translations.tl.plant_leafy_9 = 'Dahon ng kamote (Camote Tops)';
+translations.tl.plant_leafy_10 = 'Saluyot (Jute)';
+translations.tl.plant_leafy_11 = 'Watercress';
+translations.tl.plant_leafy_12 = 'Dahon ng labanos (Radish Greens)';
 // Tagalog: Aquatic plants
-translations.tl.plant_aquatic_1 = 'Water Lily';
-translations.tl.plant_aquatic_2 = 'Lotus';
-translations.tl.plant_aquatic_3 = 'Papyrus';
-translations.tl.plant_aquatic_4 = 'Cattail';
-translations.tl.plant_aquatic_5 = 'Water Hyacinth';
-translations.tl.plant_aquatic_6 = 'Pickerelweed';
-translations.tl.plant_aquatic_7 = 'Horsetail Reed';
-translations.tl.plant_aquatic_8 = 'Duckweed';
+translations.tl.plant_aquatic_1 = 'Water Hyacinth (Kawayan-kawayan)';
+translations.tl.plant_aquatic_2 = 'Water Lettuce';
+translations.tl.plant_aquatic_3 = 'Kangkong (Water Spinach)';
+translations.tl.plant_aquatic_4 = 'Lotus';
+translations.tl.plant_aquatic_5 = 'Water Lily';
+translations.tl.plant_aquatic_6 = 'Duckweed';
+translations.tl.plant_aquatic_7 = 'Papyrus';
+translations.tl.plant_aquatic_8 = 'Cattail';
 translations.tl.plant_aquatic_9 = 'Arrowhead';
 translations.tl.plant_aquatic_10 = 'Yellow Iris';
 translations.tl.plant_aquatic_11 = 'Umbrella Palm';
@@ -668,7 +694,18 @@ const fullContentPacks = {
     leafy_humidity: '50%-70% de HR.',
     aquatic_substrate: 'Arcilla o marga acuatica con grava gruesa.',
     aquatic_light: 'Sol pleno a luz indirecta brillante, 4-8 horas.',
-    aquatic_water_quality: 'Temp 15-28C. Oxigenar y medir pH semanalmente.'
+    aquatic_water_quality: 'Temp 15-28C. Oxigenar y medir pH semanalmente.',
+    danger_summary_title: 'Detalles de peligro',
+    arid_danger_low: 'Peligro — humedad del suelo bajo 5%: plantas pueden secarse y morir.',
+    arid_danger_high: 'Peligro — humedad del suelo sobre 30%: raíces pueden pudrirse.',
+    drought_danger_low: 'Peligro — humedad bajo 12%: plantas pueden marchitarse.',
+    drought_danger_high: 'Peligro — humedad sobre 50%: raíces pueden sufrir y pudrirse.',
+    tropical_danger_low: 'Peligro — humedad bajo 30%: plantas tropicales pueden sufrir sequía.',
+    tropical_danger_high: 'Peligro — humedad sobre 80%: rápido riesgo de pudrición de raíces.',
+    leafy_danger_low: 'Peligro — humedad bajo 40%: hojas pueden florecer o rendimiento puede bajar.',
+    leafy_danger_high: 'Peligro — humedad sobre 85%: raíces pueden carecer de oxígeno y fallar.',
+    aquatic_danger_low: 'Peligro — agua bajo 75%: plantas acuáticas marginales pueden sufrir.',
+    aquatic_danger_high: 'Nota — sin peligro de humedad superior; vigila la calidad del agua y oxígeno.'
   },
   fr: {
     tab_arid: 'Aride',
@@ -718,7 +755,18 @@ const fullContentPacks = {
     leafy_humidity: '50%-70% HR.',
     aquatic_substrate: 'Argile ou limon aquatique avec gravier grossier.',
     aquatic_light: 'Plein soleil a lumiere vive indirecte, 4-8 heures.',
-    aquatic_water_quality: 'Temp 15-28C. Oxygener et tester le pH chaque semaine.'
+    aquatic_water_quality: 'Temp 15-28C. Oxygener et tester le pH chaque semaine.',
+    danger_summary_title: 'Détails du danger',
+    arid_danger_low: 'Danger — humidité du sol inférieure à 5 % : les plantes peuvent se dessécher et mourir.',
+    arid_danger_high: 'Danger — humidité du sol supérieure à 30 % : les racines peuvent pourrir.',
+    drought_danger_low: 'Danger — humidité inférieure à 12 % : les plantes peuvent se flétrir.',
+    drought_danger_high: 'Danger — humidité supérieure à 50 % : les racines peuvent souffrir et pourrir.',
+    tropical_danger_low: 'Danger — humidité inférieure à 30 % : les plantes tropicales peuvent souffrir de la sécheresse.',
+    tropical_danger_high: 'Danger — humidité supérieure à 80 % : risque rapide de pourriture des racines.',
+    leafy_danger_low: 'Danger — humidité inférieure à 40 % : les feuilles peuvent monter à graine ou le rendement peut baisser.',
+    leafy_danger_high: 'Danger — humidité supérieure à 85 % : les racines peuvent manquer d\'oxygène et échouer.',
+    aquatic_danger_low: 'Danger — eau inférieure à 75 % : les plantes aquatiques marginales peuvent souffrir.',
+    aquatic_danger_high: 'Note — pas de danger d\'humidité supérieure ; surveille la qualité de l\'eau et l\'oxygénation.'
   },
   de: {
     tab_arid: 'Arid',
@@ -768,7 +816,18 @@ const fullContentPacks = {
     leafy_humidity: '50%-70% RH.',
     aquatic_substrate: 'Wasserton oder Lehm mit grobem Kies.',
     aquatic_light: 'Volle Sonne bis helles indirektes Licht, 4-8 Stunden.',
-    aquatic_water_quality: 'Temp 15-28C. Belueften und pH woechentlich pruefen.'
+    aquatic_water_quality: 'Temp 15-28C. Belueften und pH woechentlich pruefen.',
+    danger_summary_title: 'Gefahrendetails',
+    arid_danger_low: 'Gefahr — Bodenfeuchte unter 5 %: Pflanzen können austrocknen und absterben.',
+    arid_danger_high: 'Gefahr — Bodenfeuchte über 30 %: Wurzeln können faulen.',
+    drought_danger_low: 'Gefahr — Feuchte unter 12 %: Pflanzen können welken.',
+    drought_danger_high: 'Gefahr — Feuchte über 50 %: Wurzeln können leiden und faulen.',
+    tropical_danger_low: 'Gefahr — Feuchte unter 30 %: Tropenpflanzen können unter Trockenheit leiden.',
+    tropical_danger_high: 'Gefahr — Feuchte über 80 %: schnelle Wurzelfäule-Gefahr.',
+    leafy_danger_low: 'Gefahr — Feuchte unter 40 %: Blätter können schießen oder Ertrag kann sinken.',
+    leafy_danger_high: 'Gefahr — Feuchte über 85 %: Wurzeln können Sauerstoff mangeln und ausfallen.',
+    aquatic_danger_low: 'Gefahr — Wasser unter 75 %: Randzone-Wasserpflanzen können leiden.',
+    aquatic_danger_high: 'Hinweis — keine obere Feuchte-Gefahr; beobachte Wasserqualität und Belüftung.'
   },
   pt: {
     tab_arid: 'Arido',
@@ -818,7 +877,18 @@ const fullContentPacks = {
     leafy_humidity: '50%-70% UR.',
     aquatic_substrate: 'Argila ou lodo aquatico com cascalho grosso.',
     aquatic_light: 'Sol pleno a luz indireta forte, 4-8 horas.',
-    aquatic_water_quality: 'Temp 15-28C. Oxigenar e medir pH semanalmente.'
+    aquatic_water_quality: 'Temp 15-28C. Oxigenar e medir pH semanalmente.',
+    danger_summary_title: 'Detalhes do perigo',
+    arid_danger_low: 'Perigo — umidade do solo abaixo de 5%: plantas podem secar e morrer.',
+    arid_danger_high: 'Perigo — umidade do solo acima de 30%: raízes podem apodrecer.',
+    drought_danger_low: 'Perigo — umidade abaixo de 12%: plantas podem murchar.',
+    drought_danger_high: 'Perigo — umidade acima de 50%: raízes podem sofrer e apodrecer.',
+    tropical_danger_low: 'Perigo — umidade abaixo de 30%: plantas tropicais podem sofrer seca.',
+    tropical_danger_high: 'Perigo — umidade acima de 80%: rápido risco de podridão de raízes.',
+    leafy_danger_low: 'Perigo — umidade abaixo de 40%: folhas podem florescer ou rendimento pode cair.',
+    leafy_danger_high: 'Perigo — umidade acima de 85%: raízes podem faltar oxigênio e falhar.',
+    aquatic_danger_low: 'Perigo — água abaixo de 75%: plantas aquáticas marginais podem sofrer.',
+    aquatic_danger_high: 'Nota — sem perigo de umidade superior; monitore qualidade de água e oxigenação.'
   },
   ru: {
     tab_arid: 'Arid',
@@ -868,7 +938,18 @@ const fullContentPacks = {
     leafy_humidity: '50%-70% RH.',
     aquatic_substrate: 'Водная глина или суглинок с крупным гравием.',
     aquatic_light: 'Полное солнце до яркого рассеянного, 4-8 часов.',
-    aquatic_water_quality: 'Темп 15-28C. Аэрация и еженедельный контроль pH.'
+    aquatic_water_quality: 'Темп 15-28C. Аэрация и еженедельный контроль pH.',
+    danger_summary_title: 'Детали опасности',
+    arid_danger_low: 'Опасность — влажность почвы ниже 5 %: растения могут высохнуть и погибнуть.',
+    arid_danger_high: 'Опасность — влажность почвы выше 30 %: корни могут загнить.',
+    drought_danger_low: 'Опасность — влажность ниже 12 %: растения могут завянуть.',
+    drought_danger_high: 'Опасность — влажность выше 50 %: корни могут страдать и загнивать.',
+    tropical_danger_low: 'Опасность — влажность ниже 30 %: тропические растения могут страдать от засухи.',
+    tropical_danger_high: 'Опасность — влажность выше 80 %: быстрый риск гниения корней.',
+    leafy_danger_low: 'Опасность — влажность ниже 40 %: листья могут выбить или урожай может упасть.',
+    leafy_danger_high: 'Опасность — влажность выше 85 %: корни могут испытывать недостаток кислорода.',
+    aquatic_danger_low: 'Опасность — вода ниже 75 %: маргинальные виды водных растений могут страдать.',
+    aquatic_danger_high: 'Примечание — нет верхней опасности влажности; следите за качеством воды и аэрацией.'
   },
   zh: {
     tab_arid: '干旱',
@@ -918,7 +999,18 @@ const fullContentPacks = {
     leafy_humidity: '50%-70% RH。',
     aquatic_substrate: '水生黏土或壤土，上覆粗砾石。',
     aquatic_light: '全日照到明亮散射光，4-8小时。',
-    aquatic_water_quality: '温度15-28C。增氧并每周检测pH。'
+    aquatic_water_quality: '温度15-28C。增氧并每周检测pH。',
+    danger_summary_title: '危险详情',
+    arid_danger_low: '危险 — 土壤湿度低于5%：植物可能干枯死亡。',
+    arid_danger_high: '危险 — 土壤湿度高于30%：根部可能腐烂。',
+    drought_danger_low: '危险 — 湿度低于12%：植物可能枯萎。',
+    drought_danger_high: '危险 — 湿度高于50%：根部可能受损和腐烂。',
+    tropical_danger_low: '危险 — 湿度低于30%：热带植物可能干旱受害。',
+    tropical_danger_high: '危险 — 湿度高于80%：快速烂根风险。',
+    leafy_danger_low: '危险 — 湿度低于40%：叶子可能冒条或产量可能下降。',
+    leafy_danger_high: '危险 — 湿度高于85%：根部可能缺氧。',
+    aquatic_danger_low: '危险 — 水位低于75%：边缘水生植物可能受害。',
+    aquatic_danger_high: '注意 — 无上限湿度危险；注意水质和充氧。'
   },
   ja: {
     tab_arid: '乾燥',
@@ -968,7 +1060,18 @@ const fullContentPacks = {
     leafy_humidity: '50%-70% RH。',
     aquatic_substrate: '水生粘土または壌土に粗い砂利。',
     aquatic_light: '日向から明るい間接光、4-8時間。',
-    aquatic_water_quality: '水温15-28C。曝気し、pHを週1回測定。'
+    aquatic_water_quality: '水温15-28C。曝気し、pHを週1回測定。',
+    danger_summary_title: '危険詳細',
+    arid_danger_low: '危険 — 土壌水分5%未満: 植物が枯れて死ぬ可能性があります。',
+    arid_danger_high: '危険 — 土壌水分30%超過: 根が腐る可能性があります。',
+    drought_danger_low: '危険 — 水分12%未満: 植物がしおれる可能性があります。',
+    drought_danger_high: '危険 — 水分50%超過: 根が苦しむと腐る可能性があります。',
+    tropical_danger_low: '危険 — 水分30%未満: 熱帯植物が干ばつストレスを受ける可能性があります。',
+    tropical_danger_high: '危険 — 水分80%超過: 根腐れ急速リスク。',
+    leafy_danger_low: '危険 — 水分40%未満: 葉が抽台するか収量が減る可能性があります。',
+    leafy_danger_high: '危険 — 水分85%超過: 根が酸素不足になる可能性があります。',
+    aquatic_danger_low: '危険 — 水位75%未満: 周辺水生植物が苦しむ可能性があります。',
+    aquatic_danger_high: '注意 — 上限湿度危険なし; 水質と酸素化を監視してください。'
   },
   ko: {
     tab_arid: '건조',
@@ -1045,6 +1148,18 @@ function applyTranslations(lang) {
     }
   });
 
+  // populate tooltip data-note attributes for elements that request it
+  document.querySelectorAll('[data-i18n-note]').forEach(el => {
+    const key = el.getAttribute('data-i18n-note');
+    if (key && dict[key]) {
+      // strip HTML for tooltip attribute
+      const tmp = document.createElement('div');
+      tmp.innerHTML = dict[key];
+      const text = tmp.textContent || tmp.innerText || '';
+      el.setAttribute('data-note', text);
+    }
+  });
+
   // translate pill labels
   document.querySelectorAll('.pill-trigger').forEach(el => el.textContent = dict.trigger || translations.en.trigger);
   document.querySelectorAll('.pill-threshold').forEach(el => el.textContent = dict.threshold || translations.en.threshold);
@@ -1071,8 +1186,48 @@ function initLanguage() {
   });
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initLanguage);
-} else {
+/* -----------------------------
+   Theme handling (dark / light)
+   ----------------------------- */
+function setTheme(theme) {
+  const root = document.documentElement;
+  const nextTheme = theme === 'dark' ? 'dark' : 'light';
+  root.setAttribute('data-theme', nextTheme);
+  document.body.setAttribute('data-theme', nextTheme);
+
+  try { localStorage.setItem('site-theme', nextTheme); } catch (e) {}
+
+  const btn = document.getElementById('theme-toggle');
+  if (btn) {
+    const isDark = nextTheme === 'dark';
+    btn.setAttribute('aria-pressed', String(isDark));
+    btn.textContent = isDark ? '🌙 Dark' : '☀️ Light';
+    btn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    btn.setAttribute('title', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    btn.setAttribute('data-mode', nextTheme);
+  }
+}
+
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme') || 'light';
+  setTheme(current === 'dark' ? 'light' : 'dark');
+}
+
+function initTheme() {
+  const saved = localStorage.getItem('site-theme');
+  const start = saved === 'dark' ? 'dark' : 'light';
+  setTheme(start);
+  const btn = document.getElementById('theme-toggle');
+  if (btn) btn.addEventListener('click', toggleTheme);
+}
+
+function initApp() {
   initLanguage();
+  initTheme();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
 }

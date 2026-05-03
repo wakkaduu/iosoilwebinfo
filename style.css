@@ -39,9 +39,50 @@
   --radius-lg: 12px;
 }
 
-/* ── Dark Mode ── */
+/* Allow explicit site theme override via attribute on <html> */
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f3;
+  --bg-page: #f0efe9;
+  --text-primary: #1a1a18;
+  --text-secondary: #5f5e5a;
+  --border: rgba(0, 0, 0, 0.12);
+  --border-hover: rgba(0, 0, 0, 0.22);
+  --arid-bg: #FAEEDA;
+  --arid-light: #FAC775;
+  --drought-bg: #EAF3DE;
+  --drought-light: #C0DD97;
+  --tropical-bg: #E1F5EE;
+  --tropical-light: #9FE1CB;
+  --leafy-bg: #E6F1FB;
+  --leafy-light: #B5D4F4;
+  --aquatic-bg: #EEEDFE;
+  --aquatic-light: #CCCBF6;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #1e1e1c;
+  --bg-secondary: #2a2a28;
+  --bg-page: #141412;
+  --text-primary: #f0efe9;
+  --text-secondary: #a8a79f;
+  --border: rgba(255, 255, 255, 0.12);
+  --border-hover: rgba(255, 255, 255, 0.22);
+  --arid-bg: #2e2010;
+  --arid-light: #5a3a10;
+  --drought-bg: #152410;
+  --drought-light: #2a4a15;
+  --tropical-bg: #0a2520;
+  --tropical-light: #0f4535;
+  --leafy-bg: #0c1e35;
+  --leafy-light: #143058;
+  --aquatic-bg: #180e3a;
+  --aquatic-light: #2d1e6a;
+}
+
+/* ── System Dark Mode Fallback ── */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     --bg-primary: #1e1e1c;
     --bg-secondary: #2a2a28;
     --bg-page: #141412;
@@ -62,6 +103,24 @@
   }
 }
 
+/* Theme toggle button */
+.theme-toggle {
+  margin-left: 8px;
+  padding: 7px 12px;
+  min-width: 104px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.12s ease;
+}
+.theme-toggle:hover { transform: translateY(-1px); }
+.theme-toggle:active { transform: translateY(0); }
+
 /* ── Base ── */
 html, body {
   min-height: 100vh;
@@ -69,6 +128,7 @@ html, body {
   background-color: var(--bg-page);
   color: var(--text-primary);
   line-height: 1.6;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .page-wrap {
@@ -109,6 +169,7 @@ html, body {
   margin-left: auto;
   display: flex;
   align-items: center;
+  gap: 8px;
 }
 .lang-select-wrap select {
   font-size: 12px;
@@ -118,6 +179,22 @@ html, body {
   background: var(--bg-primary);
   color: var(--text-primary);
 }
+
+/* Theme toggle button */
+.theme-toggle {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.12s ease;
+}
+.theme-toggle:hover { transform: translateY(-1px); }
+.theme-toggle:active { transform: translateY(0); }
 
 .visually-hidden {
   position: absolute !important;
@@ -238,6 +315,7 @@ html, body {
   height: 8px;
   border-radius: 4px;
   position: absolute;
+  z-index: 5;
 }
 
 .moisture-pct {
@@ -245,6 +323,102 @@ html, body {
   font-size: 14px;
   font-weight: 500;
   margin-top: 6px;
+}
+
+/* Visual zones overlay on moisture track */
+.moisture-track { position: relative; }
+.moisture-track .zone-low,
+.moisture-track .zone-high {
+  position: absolute;
+  top: -6px; bottom: -6px;
+  border-radius: 4px;
+  pointer-events: auto;
+  cursor: help;
+  z-index: 20;
+  min-width: 12px;
+}
+.moisture-track .zone-low { background: rgba(220, 90, 40, 0.10); }
+.moisture-track .zone-high { background: rgba(185, 50, 42, 0.14); }
+
+/* Category-aware tints override for clarity */
+.cat-header-arid     .moisture-track .zone-low  { background: rgba(186,117,23,0.12); }
+.cat-header-arid     .moisture-track .zone-high { background: rgba(185,59,42,0.16); }
+.cat-header-drought  .moisture-track .zone-low  { background: rgba(59,109,17,0.08); }
+.cat-header-drought  .moisture-track .zone-high { background: rgba(47,89,16,0.14); }
+.cat-header-tropical .moisture-track .zone-low  { background: rgba(15,110,86,0.08); }
+.cat-header-tropical .moisture-track .zone-high { background: rgba(12,90,71,0.14); }
+.cat-header-leafy    .moisture-track .zone-low  { background: rgba(24,95,165,0.08); }
+.cat-header-leafy    .moisture-track .zone-high { background: rgba(17,71,128,0.14); }
+.cat-header-aquatic  .moisture-track .zone-low  { background: rgba(83,58,183,0.10); }
+.cat-header-aquatic  .moisture-track .zone-high { background: rgba(66,42,149,0.08); }
+
+/* Ideal range edge markers */
+.moisture-track .ideal-marker {
+  position: absolute;
+  top: -6px;
+  width: 2px;
+  height: 20px;
+  background: rgba(0,0,0,0.35);
+  border-radius: 2px;
+  transform: translateX(-1px);
+  pointer-events: none;
+}
+.cat-header-arid     .moisture-track .ideal-marker { background: rgba(186,117,23,0.95); }
+.cat-header-drought  .moisture-track .ideal-marker { background: rgba(59,109,17,0.95); }
+.cat-header-tropical .moisture-track .ideal-marker { background: rgba(15,110,86,0.95); }
+.cat-header-leafy    .moisture-track .ideal-marker { background: rgba(24,95,165,0.95); }
+.cat-header-aquatic  .moisture-track .ideal-marker { background: rgba(83,58,183,0.95); }
+
+/* Tooltip-ish labeling when hovering the track (small) */
+.zone-low:hover::after,
+.zone-high:hover::after {
+  content: attr(data-note);
+  position: absolute;
+  top: -36px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  padding: 6px 10px;
+  background: rgba(0,0,0,0.78);
+  color: #fff;
+  border-radius: 6px;
+  white-space: normal;
+  max-width: 220px;
+  text-align: left;
+  pointer-events: none;
+  z-index: 60;
+}
+
+/* animate moisture fill changes */
+.moisture-fill {
+  transition: left 420ms cubic-bezier(.2,.9,.2,1), width 420ms cubic-bezier(.2,.9,.2,1), background-color 220ms ease;
+}
+
+/* danger panel styling */
+.danger-panel {
+  margin-top: 8px;
+}
+.danger-panel summary {
+  list-style: none;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-primary);
+}
+.danger-panel[open] summary {
+  background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+}
+.danger-panel .danger-range { margin-top: 8px; }
+
+/* make the danger messages more compact inside the panel */
+.danger-panel .danger-low, .danger-panel .danger-high {
+  background: transparent;
+  border: none;
+  padding: 6px 0;
 }
 
 /* ── Section Title ── */
@@ -349,12 +523,51 @@ html, body {
   font-family: 'DM Mono', monospace;
 }
 
-/* ── Footer ── */
-.footer {
-  margin-top: 4rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border);
-  font-size: 11px;
-  color: var(--text-secondary);
-  letter-spacing: 0.5px;
+/* ── Danger range styles ── */
+.danger-range {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 340px;
 }
+.danger-range .danger-low,
+.danger-range .danger-high {
+  font-size: 12px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(0,0,0,0.03);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+}
+
+/* Category-colored accents (left border) */
+.cat-header-arid     .danger-range .danger-low  { border-left: 4px solid var(--arid); }
+.cat-header-arid     .danger-range .danger-high { border-left: 4px solid #b93b2a; }
+.cat-header-drought  .danger-range .danger-low  { border-left: 4px solid var(--drought); }
+.cat-header-drought  .danger-range .danger-high { border-left: 4px solid #2f5910; }
+.cat-header-tropical .danger-range .danger-low  { border-left: 4px solid var(--tropical); }
+.cat-header-tropical .danger-range .danger-high { border-left: 4px solid #0c5a47; }
+.cat-header-leafy    .danger-range .danger-low  { border-left: 4px solid var(--leafy); }
+.cat-header-leafy    .danger-range .danger-high { border-left: 4px solid #11477f; }
+.cat-header-aquatic  .danger-range .danger-low  { border-left: 4px solid var(--aquatic); }
+.cat-header-aquatic  .danger-range .danger-high { border-left: 4px solid #422a95; }
+
+/* Use normal font weight for danger messages */
+.danger-range .danger-low,
+.danger-range .danger-high,
+.danger-range .danger-low *,
+.danger-range .danger-high * { font-weight: normal !important; }
+
+/* Extra specific override: ensure no bold appears for danger-high
+   (covers category-scoped selectors and prevents stylesheet ordering issues) */
+.cat-header-arid  .danger-range .danger-high,
+.cat-header-drought .danger-range .danger-high,
+.cat-header-tropical .danger-range .danger-high,
+.cat-header-leafy .danger-range .danger-high,
+.cat-header-aquatic .danger-range .danger-high {
+  font-weight: 400 !important;
+  font-synthesis: none !important;
+}
+
+

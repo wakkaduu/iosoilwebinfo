@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ioSoil — Plant Care Database</title>
+  <title>ioSoil </title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -35,6 +35,7 @@
           <option value="ru" data-i18n="option_ru">Русский</option>
         </select>
       </div>
+      <button id="theme-toggle" type="button" class="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode">🌙</button>
     </header>
 
     <!-- ── Tab Navigation ── -->
@@ -62,8 +63,20 @@
           <div class="moisture-label" data-i18n="ideal_moisture_label">Ideal soil moisture range</div>
           <div class="moisture-track">
             <div class="moisture-fill" style="left: 5%; width: 15%; background: var(--arid);"></div>
+            <!-- Visual zones: low danger, high danger, and ideal markers -->
+            <div class="zone-low" data-i18n-note="arid_danger_low" style="left:0%; width:5%;"></div>
+            <div class="zone-high" data-i18n-note="arid_danger_high" style="left:30%; width:70%;"></div>
+            <div class="ideal-marker ideal-left" style="left:5%;"></div>
+            <div class="ideal-marker ideal-right" style="left:20%;"></div>
           </div>
           <div class="moisture-pct" style="color: var(--arid)" data-i18n="arid_moisture_pct">10% – 20%</div>
+          <details class="danger-panel">
+            <summary data-i18n="danger_summary_title">Danger details</summary>
+            <div class="danger-range">
+              <div class="danger-low" data-i18n="arid_danger_low">Danger — soil moisture below 5%: severe dehydration risk.</div>
+              <div class="danger-high" data-i18n="arid_danger_high">Danger — soil moisture above 30%: root rot likely.</div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -131,8 +144,19 @@
           <div class="moisture-label" data-i18n="ideal_moisture_label">Ideal soil moisture range</div>
           <div class="moisture-track">
             <div class="moisture-fill" style="left: 10%; width: 20%; background: var(--drought);"></div>
+            <div class="zone-low" data-i18n-note="drought_danger_low" style="left:0%; width:12%;"></div>
+            <div class="zone-high" data-i18n-note="drought_danger_high" style="left:50%; width:50%;"></div>
+            <div class="ideal-marker ideal-left" style="left:10%;"></div>
+            <div class="ideal-marker ideal-right" style="left:30%;"></div>
           </div>
           <div class="moisture-pct" style="color: var(--drought)" data-i18n="drought_moisture_pct">20% – 40%</div>
+          <details class="danger-panel">
+            <summary data-i18n="danger_summary_title">Danger details</summary>
+            <div class="danger-range">
+              <div class="danger-low" data-i18n="drought_danger_low">Danger — soil moisture below 12%: plants at risk of wilting.</div>
+              <div class="danger-high" data-i18n="drought_danger_high">Danger — soil moisture above 50%: root suffocation and rot risk.</div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -200,8 +224,19 @@
           <div class="moisture-label" data-i18n="ideal_moisture_label">Ideal soil moisture range</div>
           <div class="moisture-track">
             <div class="moisture-fill" style="left: 25%; width: 30%; background: var(--tropical);"></div>
+            <div class="zone-low" data-i18n-note="tropical_danger_low" style="left:0%; width:30%;"></div>
+            <div class="zone-high" data-i18n-note="tropical_danger_high" style="left:80%; width:20%;"></div>
+            <div class="ideal-marker ideal-left" style="left:25%;"></div>
+            <div class="ideal-marker ideal-right" style="left:55%;"></div>
           </div>
           <div class="moisture-pct" style="color: var(--tropical)" data-i18n="tropical_moisture_pct">50% – 70%</div>
+          <details class="danger-panel">
+            <summary data-i18n="danger_summary_title">Danger details</summary>
+            <div class="danger-range">
+              <div class="danger-low" data-i18n="tropical_danger_low">Danger — soil moisture below 30%: drought stress for tropicals.</div>
+              <div class="danger-high" data-i18n="tropical_danger_high">Danger — soil moisture above 80%: rapid root rot risk.</div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -269,8 +304,19 @@
           <div class="moisture-label" data-i18n="ideal_moisture_label">Ideal soil moisture range</div>
           <div class="moisture-track">
             <div class="moisture-fill" style="left: 30%; width: 30%; background: var(--leafy);"></div>
+            <div class="zone-low" data-i18n-note="leafy_danger_low" style="left:0%; width:40%;"></div>
+            <div class="zone-high" data-i18n-note="leafy_danger_high" style="left:85%; width:15%;"></div>
+            <div class="ideal-marker ideal-left" style="left:30%;"></div>
+            <div class="ideal-marker ideal-right" style="left:60%;"></div>
           </div>
           <div class="moisture-pct" style="color: var(--leafy)" data-i18n="leafy_moisture_pct">55% – 75%</div>
+          <details class="danger-panel">
+            <summary data-i18n="danger_summary_title">Danger details</summary>
+            <div class="danger-range">
+              <div class="danger-low" data-i18n="leafy_danger_low">Danger — soil moisture below 40%: bolting and yield loss possible.</div>
+              <div class="danger-high" data-i18n="leafy_danger_high">Danger — soil moisture above 85%: root oxygen deprivation risk.</div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -338,8 +384,20 @@
           <div class="moisture-label" data-i18n="ideal_moisture_label">Ideal soil moisture range</div>
           <div class="moisture-track">
             <div class="moisture-fill" style="left: 65%; width: 30%; background: var(--aquatic);"></div>
+            <div class="zone-low" data-i18n-note="aquatic_danger_low" style="left:0%; width:75%;"></div>
+            <!-- no true high-danger for aquatic; small gentle overlay to indicate 'monitor' -->
+            <div class="zone-high" data-i18n-note="aquatic_danger_high" style="left:95%; width:5%;"></div>
+            <div class="ideal-marker ideal-left" style="left:65%;"></div>
+            <div class="ideal-marker ideal-right" style="left:95%;"></div>
           </div>
           <div class="moisture-pct" style="color: var(--aquatic)" data-i18n="aquatic_moisture_pct">85% – 100%+</div>
+          <details class="danger-panel">
+            <summary data-i18n="danger_summary_title">Danger details</summary>
+            <div class="danger-range">
+              <div class="danger-low" data-i18n="aquatic_danger_low">Danger — water level below 75%: marginal species may suffer.</div>
+              <div class="danger-high" data-i18n="aquatic_danger_high">Note — no upper moisture danger; monitor water quality and oxygenation instead.</div>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -390,10 +448,6 @@
       </div>
 
     </section>
-
-    <footer class="footer" data-i18n="footer">
-      ioSoil Plant Care Database &mdash; v1.0 &mdash; 5 categories &bull; 60 species
-    </footer>
 
   </main>
 
